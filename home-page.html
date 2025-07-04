@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Student homepage for Web and Computer Programming certificate." />
+    <meta name="author" content="Your Name" />
+    <title>My WDD231 Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/home-page.css" />
+    <script src="scripts/home-page.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.svg" alt="WDD231 Logo" />
+            <span>Bryan Wesley Santana</span>
+        </div>
+        <button id="hamburger" aria-label="Menu">☰</button>
+    </header>
+
+    <nav id="navMenu">
+        <ul>
+            <li><a href="home-page.html" class="active">Home</a></li>
+            <li><a href="chamber/#">Chamber</a></li>
+            <li><a href="final/#">Final</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Home</h1>
+        <section>
+            <h2>About Me</h2>
+            <p>My name is Bryan Santana. I was born in Brazil and live with my family in Curitiba. I am currently
+                working as a planning
+                assistant at a Volvo subcontractor. I have a testimony that the church and the temple are the best place
+                to keep in touch
+                with the Savior and learn from Him.</p>
+        </section>
+
+        <section>
+            <h2>Web & Computer Programming Certificate</h2>
+            <div id="courseFilters">
+                <button id="allBtn">All Courses</button>
+                <button id="wddBtn">WDD Courses</button>
+                <button id="cseBtn">CSE Courses</button>
+            </div>
+            <div id="coursesContainer"></div>
+            <p>Total Credits: <span id="creditTotal">0</span></p>
+        </section>
+
+        <section>
+            <h2>Interests</h2>
+            <p>I like to play the guitar and I like hiking with my friends. I also like to watch movies and series
+                with my dad about Star Wars, Marvel, DC. I play sports like karate, basketball and I also go to the GYM.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/bryanwessantana" target="_blank"><img src="images/github.svg" alt="GitHub"></a>
+            <a href="https://linkedin.com/in/BryanWesleySantana" target="_blank"><img src="images/linkedin.svg"
+                    alt="LinkedIn"></a>
+            <a href="https://instagram.com/bryan._santana" target="_blank"><img src="images/instagram.svg"
+                    alt="Instagram"></a>
+        </div>
+        <p>&copy; <span id="currentYear"></span> &bull; Bryan Wesley Santana &bull; Brazil</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>
