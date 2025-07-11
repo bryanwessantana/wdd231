@@ -2,30 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Student homepage for Web and Computer Programming certificate.">
-    <meta name="author" content="Bryan Wesley Santana">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Student homepage for Web and Computer Programming certificate." />
+    <meta name="author" content="Bryan Wesley Santana" />
     <title>Bryan Wesley Santana - WDD231 Student Homepage</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 
-    <!-- Font Awesome 5.15.4 (no validation errors) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-dY2N7jYGoKxXzKYOICFPIBD91LvMK+aGSEeVPl4m1jXt6Ul3AmTnJ1yZG/1w1cU8HU4S0pPAc4+jKPMQWh6HTQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="styles/index.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/index.css" />
     <script src="scripts/index.js" defer></script>
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.svg" alt="WDD231 Logo">
+            <img src="images/logo.svg" alt="WDD231 Logo" />
             <span>Bryan Wesley Santana</span>
         </div>
         <button id="hamburger" aria-label="Menu">☰</button>
@@ -42,11 +43,21 @@
     <main>
         <h1>Home</h1>
 
-        <section>
+        <section class="about-me">
             <h2>About Me</h2>
-            <p>My name is Bryan Santana. I was born in Brazil and live with my family in Curitiba. I am currently
-                working as a planning assistant at a Volvo subcontractor. I have a testimony that the church and the
-                temple are the best place to keep in touch with the Savior and learn from Him.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        My name is Bryan Santana. I was born in Brazil and live with my family in Curitiba.
+                        I am currently working as a planning assistant at a Volvo subcontractor. I have a testimony
+                        that the church and the temple are the best place to keep in touch with the Savior and learn
+                        from Him.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="images/profile-pic.jpg" alt="Photo of Bryan Santana" class="profile-pic" />
+                </div>
+            </div>
         </section>
 
         <section>
@@ -62,7 +73,8 @@
 
         <section>
             <h2>Interests</h2>
-            <p>I like to play the guitar and I like hiking with my friends. I also like to watch movies and series with
+            <p>
+                I like to play the guitar and I like hiking with my friends. I also like to watch movies and series with
                 my dad about Star Wars, Marvel, DC. I play sports like karate, basketball and I also go to the GYM.
             </p>
         </section>
