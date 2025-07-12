@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The chamber of commerce site is to promote the business interests of its members" />
+    <meta name="author" content="Bryan Wesley Santana" />
+
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Chamber of Commerce">
+    <meta property="og:description" content="Connecting and supporting businesses.">
+    <meta property="og:image" content="https://www.example.com/images/hero-banner.jpg">
+    <meta property="og:url" content="https://www.example.com">
+    <meta property="og:type" content="website">
+    <title>Chamber Directory Page</title>
+
+    <link rel="stylesheet" href="styles/directory.css" />
+    <script src="scripts/directory.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="images/logo.png" alt="Chamber of Commerce Logo" class="logo">
+            <h1>Chamber of Commerce</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Member Directory</h2>
+        <div class="view-toggle">
+            <button id="grid-view">Grid View</button>
+            <button id="list-view">List View</button>
+        </div>
+        <div id="directory" class="grid">
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p><strong>Chamber of Commerce</strong><br>
+                    10 Bee St. | P.O. Box<br>
+                    USA, Mali 48292<br>
+                    <a href="mailto:info@usachamber.com">info@usachamber.com</a><br>
+                    (223) 555-2320
+                </p>
+            </div>
+            <div class="social-media">
+                <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+            <div class="dev-info">
+                <p>WDD231 Class Project<br>
+                    Bryan Wesley Santana<br>
+                    &copy; <span id="year"></span> Chamber of Commerce<br>
+                    Last Modified: <span id="lastModified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
