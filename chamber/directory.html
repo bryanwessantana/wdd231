@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The chamber of commerce site is to promote the business interests of its members" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="The chamber of commerce site is to promote the business interests of its members" />
     <meta name="author" content="Bryan Wesley Santana" />
 
-    <!-- Facebook Open Graph Meta Tags -->
-    <meta property="og:title" content="Chamber of Commerce">
-    <meta property="og:description" content="Connecting and supporting businesses.">
-    <meta property="og:image" content="https://www.example.com/images/hero-banner.jpg">
-    <meta property="og:url" content="https://www.example.com">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="Brazil Chamber of Commerce" />
+    <meta property="og:description" content="Connecting and supporting businesses." />
+    <meta property="og:image" content="https://www.example.com/images/hero-banner.jpg" />
+    <meta property="og:url" content="https://www.example.com" />
+    <meta property="og:type" content="website" />
+
     <title>Chamber Directory Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" 
+    />
 
     <link rel="stylesheet" href="styles/directory.css" />
     <script src="scripts/directory.js" defer></script>
@@ -21,12 +27,14 @@
 <body>
     <header>
         <div class="header-container">
-            <img src="images/logo.png" alt="Chamber of Commerce Logo" class="logo">
-            <h1>Chamber of Commerce</h1>
+            <div class="logo-title">
+                <img src="images/logo.png" alt="Chamber of Commerce Logo" class="logo">
+                <h1>Brazil Chamber of Commerce</h1>
+            </div>
             <nav>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="directory.html" class="active">Directory</a></li>
                     <li><a href="join.html">Join</a></li>
                     <li><a href="discover.html">Discover</a></li>
                 </ul>
@@ -41,29 +49,39 @@
             <button id="list-view">List View</button>
         </div>
         <div id="directory" class="grid">
+
         </div>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="contact-info">
-                <p><strong>Chamber of Commerce</strong><br>
+            <div class="footer-column">
+                <p><strong>Brazil Chamber of Commerce</strong><br>
                     10 Bee St. | P.O. Box<br>
-                    USA, Mali 48292<br>
-                    <a href="mailto:info@usachamber.com">info@usachamber.com</a><br>
+                    Brazil, Mali 48292<br>
+                    <a href="mailto:info@brazilchamber.com">info@brazilchamber.com</a><br>
                     (223) 555-2320
                 </p>
             </div>
-            <div class="social-media">
-                <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+    
+            <div class="footer-column center">
+                <a href="https://github.com/bryanwessantana" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/bryansantana/" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/bryan._santana/" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
-            <div class="dev-info">
+    
+            <div class="footer-column right">
                 <p>WDD231 Class Project<br>
                     Bryan Wesley Santana<br>
-                    &copy; <span id="year"></span> Chamber of Commerce<br>
-                    Last Modified: <span id="lastModified"></span></p>
+                    &copy; <span id="year"></span> Brazil Chamber of Commerce<br>
+                    Last Modified: <span id="lastModified"></span>
+                </p>
             </div>
         </div>
     </footer>

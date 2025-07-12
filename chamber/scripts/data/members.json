@@ -1,0 +1,65 @@
+[
+    {
+        "name": "TechNova Solutions",
+        "address": "123 Innovation Way, Curitiba, PR",
+        "phone": "(41) 99999-1234",
+        "website": "https://technova.com.br",
+        "image": "technova.png",
+        "membershipLevel": 3,
+        "description": "Providing advanced tech solutions and digital consulting."
+    },
+    {
+        "name": "Green Fields Organic",
+        "address": "456 Eco Street, Curitiba, PR",
+        "phone": "(41) 98888-5678",
+        "website": "https://greenfields.com",
+        "image": "greenfields.png",
+        "membershipLevel": 2,
+        "description": "Sustainable and organic food products distributor."
+    },
+    {
+        "name": "Veloce Logistics",
+        "address": "789 Transport Ave, Curitiba, PR",
+        "phone": "(41) 97777-0001",
+        "website": "https://velocelogistics.com",
+        "image": "veloce.png",
+        "membershipLevel": 1,
+        "description": "Efficient supply chain and logistics services."
+    },
+    {
+        "name": "EduPlus Academy",
+        "address": "321 Learning Blvd, Curitiba, PR",
+        "phone": "(41) 96666-4321",
+        "website": "https://eduplus.com.br",
+        "image": "eduplus.png",
+        "membershipLevel": 2,
+        "description": "Educational programs for youth and professionals."
+    },
+    {
+        "name": "Zenith Architects",
+        "address": "147 Skyline Ave, Curitiba, PR",
+        "phone": "(41) 95555-7890",
+        "website": "https://zenitharc.com",
+        "image": "zenith.png",
+        "membershipLevel": 3,
+        "description": "Innovative architectural and interior design."
+    },
+    {
+        "name": "Bright Marketing",
+        "address": "852 Strategy Rd, Curitiba, PR",
+        "phone": "(41) 94444-3210",
+        "website": "https://brightmkt.com",
+        "image": "bright.png",
+        "membershipLevel": 1,
+        "description": "Creative marketing campaigns and branding."
+    },
+    {
+        "name": "Curitiba Crafts",
+        "address": "963 Artisan Ln, Curitiba, PR",
+        "phone": "(41) 93333-5555",
+        "website": "https://curitibacrafts.com",
+        "image": "crafts.png",
+        "membershipLevel": 2,
+        "description": "Local handmade goods and crafts."
+    }
+]

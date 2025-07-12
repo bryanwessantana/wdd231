@@ -1,35 +1,64 @@
-document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("lastModified").textContent = document.lastModified;
+document.addEventListener('DOMContentLoaded', () => {
+    const yearElement = document.getElementById("year");
+    const lastModifiedElement = document.getElementById("lastModified");
 
-const directory = document.getElementById('directory');
-const gridBtn = document.getElementById('grid-view');
-const listBtn = document.getElementById('list-view');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 
-gridBtn.addEventListener('click', () => {
-    directory.classList.add('grid');
-    directory.classList.remove('list');
-});
+    if (lastModifiedElement) {
+        lastModifiedElement.textContent = document.lastModified;
+    }
 
-listBtn.addEventListener('click', () => {
-    directory.classList.add('list');
-    directory.classList.remove('grid');
-});
+    const directory = document.getElementById('directory');
+    const gridBtn = document.getElementById('grid-view');
+    const listBtn = document.getElementById('list-view');
 
-// Example data - replace with actual fetch from JSON or API
-const members = [
-    { name: "BizOne", email: "biz1@email.com", phone: "123-456-7890", website: "https://bizone.com" },
-    { name: "BizTwo", email: "biz2@email.com", phone: "123-555-7890", website: "https://biztwo.com" },
-    { name: "BizThree", email: "biz3@email.com", phone: "123-456-0000", website: "https://bizthree.com" }
-];
+    if (gridBtn && listBtn && directory) {
+        gridBtn.addEventListener('click', () => {
+            directory.classList.add('grid');
+            directory.classList.remove('list');
+        });
 
-members.forEach(member => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <h3>${member.name}</h3>
-      <p>Email: <a href="mailto:${member.email}">${member.email}</a></p>
-      <p>Phone: ${member.phone}</p>
-      <p><a href="${member.website}" target="_blank">Visit Website</a></p>
-    `;
-    directory.appendChild(card);
+        listBtn.addEventListener('click', () => {
+            directory.classList.add('list');
+            directory.classList.remove('grid');
+        });
+    }
+
+    async function loadMembers() {
+        try {
+            const response = await fetch('scripts/data/members.json');
+            const members = await response.json();
+
+            members.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${member.name}</h3>
+                    <p><strong>Address:</strong> ${member.address}</p>
+                    <p><strong>Phone:</strong> ${member.phone}</p>
+                    <p><strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
+                    <p><strong>Membership Level:</strong> ${getMembershipLevel(member.membershipLevel)}</p>
+                    <p>${member.description || ''}</p>
+                    <img src="images/${member.image}" alt="${member.name} logo" style="max-width: 100px; margin-top: 10px;">
+                `;
+                directory.appendChild(card);
+            });
+        } catch (error) {
+            console.error('Error loading members:', error);
+            directory.innerHTML = '<p>Unable to load member data.</p>';
+        }
+    }
+
+    function getMembershipLevel(level) {
+        switch (level) {
+            case 1: return 'Member';
+            case 2: return 'Silver';
+            case 3: return 'Gold';
+            default: return 'Unknown';
+        }
+    }
+
+    loadMembers();
 });
