@@ -16,9 +16,9 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
     background-color: var(--background-light);
     color: var(--text-color);
+    line-height: 1.6;
 }
 
 a {
@@ -63,8 +63,27 @@ nav ul li a {
     transition: background 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
     background-color: var(--accent-color);
+}
+
+.hero-banner {
+    background-image: url('../images/hero-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: 2rem;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
+    color: #ffffff;
 }
 
 #directory {
