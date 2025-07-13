@@ -30,10 +30,15 @@ h1,
 h2,
 h3 {
     color: var(--primary-color);
+    margin: 1rem;
+}
+
+.logo-title h1 {
+    color: var(--background-light);;
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     padding: 1rem;
     color: white;
 }
@@ -72,7 +77,7 @@ nav ul li a:hover {
 .card {
     background: white;
     border: 1px solid #ddd;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     flex: 1 1 30%;
@@ -85,22 +90,6 @@ nav ul li a:hover {
 
 .list .card {
     flex: 1 1 100%;
-}
-
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    #directory {
-        flex-direction: column;
-    }
 }
 
 button {
@@ -137,6 +126,7 @@ footer {
 
 .footer-column {
     flex: 1 1 30%;
+    text-align: left;
 }
 
 .footer-column.center {
@@ -179,6 +169,20 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #directory {
+        flex-direction: column;
+    }
+    
     .footer-content {
         flex-direction: column;
         text-align: center;

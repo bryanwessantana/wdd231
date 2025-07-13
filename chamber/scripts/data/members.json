@@ -1,65 +1,65 @@
 [
     {
-        "name": "TechNova Solutions",
-        "address": "123 Innovation Way, Curitiba, PR",
-        "phone": "(41) 99999-1234",
-        "website": "https://technova.com.br",
-        "image": "technova.png",
+        "name": "Positivo Tecnologia",
+        "address": "Rua João Bettega, 5200 - CIC, Curitiba, PR",
+        "phone": "(41) 3316-7000",
+        "website": "https://www.positivotecnologia.com.br/",
+        "image": "positivo_logo_IA_2025.png",
         "membershipLevel": 3,
-        "description": "Providing advanced tech solutions and digital consulting."
+        "description": "Uma das maiores fabricantes de tecnologia do Brasil, oferecendo soluções para educação, empresas e governo."
     },
     {
-        "name": "Green Fields Organic",
-        "address": "456 Eco Street, Curitiba, PR",
-        "phone": "(41) 98888-5678",
-        "website": "https://greenfields.com",
-        "image": "greenfields.png",
+        "name": "Tigre",
+        "address": "Rua João Bettega, 5515 - CIC, Curitiba, PR",
+        "phone": "(41) 3316-5500",
+        "website": "https://www.tigre.com.br/",
+        "image": "tigre_logo.png",
         "membershipLevel": 2,
-        "description": "Sustainable and organic food products distributor."
+        "description": "Empresa líder em soluções para construção civil, hidráulica e elétrica com atuação internacional."
     },
     {
-        "name": "Veloce Logistics",
-        "address": "789 Transport Ave, Curitiba, PR",
-        "phone": "(41) 97777-0001",
-        "website": "https://velocelogistics.com",
-        "image": "veloce.png",
-        "membershipLevel": 1,
-        "description": "Efficient supply chain and logistics services."
-    },
-    {
-        "name": "EduPlus Academy",
-        "address": "321 Learning Blvd, Curitiba, PR",
-        "phone": "(41) 96666-4321",
-        "website": "https://eduplus.com.br",
-        "image": "eduplus.png",
-        "membershipLevel": 2,
-        "description": "Educational programs for youth and professionals."
-    },
-    {
-        "name": "Zenith Architects",
-        "address": "147 Skyline Ave, Curitiba, PR",
-        "phone": "(41) 95555-7890",
-        "website": "https://zenitharc.com",
-        "image": "zenith.png",
+        "name": "Grupo Boticário",
+        "address": "Av. Rui Barbosa, 4110 - Borda do Campo, São José dos Pinhais, PR",
+        "phone": "(41) 3381-7000",
+        "website": "https://www.grupoboticario.com.br/",
+        "image": "boticario_logo.png",
         "membershipLevel": 3,
-        "description": "Innovative architectural and interior design."
+        "description": "Gigante do setor de cosméticos e beleza, com atuação nacional e internacional e marcas icônicas no portfólio."
     },
     {
-        "name": "Bright Marketing",
-        "address": "852 Strategy Rd, Curitiba, PR",
-        "phone": "(41) 94444-3210",
-        "website": "https://brightmkt.com",
-        "image": "bright.png",
-        "membershipLevel": 1,
-        "description": "Creative marketing campaigns and branding."
-    },
-    {
-        "name": "Curitiba Crafts",
-        "address": "963 Artisan Ln, Curitiba, PR",
-        "phone": "(41) 93333-5555",
-        "website": "https://curitibacrafts.com",
-        "image": "crafts.png",
+        "name": "Caixa Econômica Federal",
+        "address": "Av. Cândido de Abreu, 776 - Centro Cívico, Curitiba, PR",
+        "phone": "0800 726 0101",
+        "website": "https://www.caixa.gov.br/",
+        "image": "caixa_logo.png",
         "membershipLevel": 2,
-        "description": "Local handmade goods and crafts."
+        "description": "Banco público federal com foco em programas sociais, financiamento habitacional e serviços bancários."
+    },
+    {
+        "name": "COPEL",
+        "address": "Rua José Izidoro Biazetto, 158 - Mossunguê, Curitiba, PR",
+        "phone": "(41) 3331-4011",
+        "website": "https://www.copel.com/",
+        "image": "copel_logo.png",
+        "membershipLevel": 1,
+        "description": "Companhia Paranaense de Energia responsável pela geração, transmissão e distribuição de energia elétrica no estado."
+    },
+    {
+        "name": "Cacau Show",
+        "address": "Rua XV de Novembro, 350 - Centro, Curitiba, PR",
+        "phone": "(41) 3026-1234",
+        "website": "https://www.cacaushow.com.br/",
+        "image": "cacaushow_logo.png",
+        "membershipLevel": 1,
+        "description": "Rede de chocolates finos e presenteáveis, com diversas lojas em Curitiba e no Brasil."
+    },
+    {
+        "name": "Ernst & Young (EY)",
+        "address": "Av. Sete de Setembro, 4880 - Batel, Curitiba, PR",
+        "phone": "(41) 2101-2000",
+        "website": "https://www.ey.com/pt_br",
+        "image": "ey_logo.png",
+        "membershipLevel": 2,
+        "description": "Multinacional de auditoria e consultoria com foco em inovação, estratégia e transformação digital."
     }
 ]
