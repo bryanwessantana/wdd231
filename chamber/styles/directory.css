@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     background-color: var(--background-light);
     color: var(--text-color);
@@ -34,7 +34,7 @@ h3 {
 }
 
 .logo-title h1 {
-    color: var(--background-light);;
+    color: var(--background-light);
 }
 
 header {
@@ -129,25 +129,6 @@ footer {
     text-align: left;
 }
 
-.footer-column.center {
-    flex: 1 1 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-column.center a i {
-    font-size: 1.8rem;
-    margin: 0 0.5rem;
-    color: white;
-    transition: transform 0.3s, color 0.3s;
-}
-
-.footer-column.center a i:hover {
-    color: var(--accent-color);
-    transform: scale(1.2);
-}
-
 .footer-column.right {
     text-align: right;
 }
@@ -156,16 +137,32 @@ footer {
     color: white;
     display: inline-block;
     margin: 0.25rem;
+    transition: color 0.3s;
 }
 
-.footer-column .icon {
+.footer-column a:hover {
+    color: var(--accent-color);
+}
+
+.footer-column.center {
+    flex: 1 1 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-column.center svg {
     width: 32px;
     height: 32px;
-    transition: transform 0.3s;
+    fill: white;
+    transition: transform 0.3s, fill 0.3s;
+    cursor: pointer;
 }
 
-.footer-column .icon:hover {
+.footer-column.center svg:hover {
     transform: scale(1.2);
+    fill: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -182,7 +179,7 @@ footer {
     #directory {
         flex-direction: column;
     }
-    
+
     .footer-content {
         flex-direction: column;
         text-align: center;
