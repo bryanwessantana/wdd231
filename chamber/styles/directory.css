@@ -33,8 +33,11 @@ h3 {
     margin: 1rem;
 }
 
-.logo-title h1 {
+.logo-title p {
     color: var(--background-light);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 header {
@@ -76,21 +79,65 @@ nav ul li a.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
+    position: relative;
+    color: white;
+    padding: 0 1rem;
+}
+
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    color: #eee;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .hero-text h2 {
     font-size: 2rem;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
     color: #ffffff;
+    padding: 0 1rem;
+    word-wrap: break-word;
 }
 
-#directory {
+#directory.grid {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin: 2rem;
+}
+
+#directory.list {
+    display: block;
+    margin: 2rem;
+}
+
+#directory.grid .card {
+    flex: 1 1 30%;
+}
+
+#directory.list .card {
+    flex: none;
+    width: 100%;
 }
 
 .card {
@@ -99,16 +146,11 @@ nav ul li a.active {
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    flex: 1 1 30%;
     transition: transform 0.2s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-}
-
-.list .card {
-    flex: 1 1 100%;
 }
 
 button {
@@ -124,6 +166,17 @@ button {
 
 button:hover {
     background-color: #005f8c;
+}
+
+button:focus,
+a:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+button[aria-pressed="true"] {
+    background-color: #005f8c;
+    box-shadow: 0 0 5px var(--accent-color);
 }
 
 footer {
@@ -204,7 +257,8 @@ footer {
         text-align: center;
     }
 
-    .footer-column.right {
+    .footer-column.right,
+    .footer-column {
         text-align: center;
     }
 
