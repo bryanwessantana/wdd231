@@ -46,6 +46,7 @@ function displayCourses(courseList) {
         card.className = "course-card";
         if (course.completed) card.classList.add("completed");
         card.innerHTML = `<h3>${course.code}</h3><p>${course.name}</p><p>Credits: ${course.credits}</p>`;
+        card.addEventListener("click", () => displayCourseDetails(course));
         coursesContainer.appendChild(card);
         totalCredits += course.credits;
     });
@@ -54,6 +55,57 @@ function displayCourses(courseList) {
 }
 
 displayCourses(courses);
+
+function displayCourses(courseList) {
+    coursesContainer.innerHTML = "";
+    let totalCredits = 0;
+
+    courseList.forEach(course => {
+        const card = document.createElement("div");
+        card.className = "course-card";
+        if (course.completed) card.classList.add("completed");
+
+        // Show only the course code
+        card.innerHTML = `<h3>${course.code}</h3>`;
+
+        // Add click to show modal
+        card.addEventListener("click", () => displayCourseDetails(course));
+
+        coursesContainer.appendChild(card);
+        totalCredits += course.credits;
+    });
+
+    creditTotalEl.textContent = totalCredits;
+}
+
+// Show modal with course details
+const courseDetails = document.getElementById("course-details");
+
+function displayCourseDetails(course) {
+    courseDetails.innerHTML = `
+        <button id="closeModal">❌</button>
+        <h2>${course.code}</h2>
+        <h3>${course.name}</h3>
+        <p><strong>Credits</strong>: ${course.credits}</p>
+        <p><strong>Certificate</strong>: ${course.completed ? "Yes" : "No"}</p>
+        <p>This course is part of the Web & Computer Programming Certificate.</p>
+        <p><strong>Technologies</strong>: HTML, CSS, JavaScript</p>
+    `;
+    courseDetails.showModal();
+
+    const closeModal = document.getElementById("closeModal");
+    closeModal.addEventListener("click", () => courseDetails.close());
+
+    courseDetails.addEventListener("click", (e) => {
+        const rect = courseDetails.getBoundingClientRect();
+        if (
+            e.clientX < rect.left || e.clientX > rect.right ||
+            e.clientY < rect.top || e.clientY > rect.bottom
+        ) {
+            courseDetails.close();
+        }
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const footerContainer = document.querySelector('footer .social-links');
