@@ -1,131 +1,96 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const yearElement = document.getElementById("year");
-    const lastModifiedElement = document.getElementById("lastModified");
-    const directory = document.getElementById('directory');
-    const gridBtn = document.getElementById('grid-view');
-    const listBtn = document.getElementById('list-view');
-    const spotlightSection = document.getElementById('spotlights');
-    const timestampInput = document.getElementById('timestamp');
+    const $ = id => document.getElementById(id);
+    const year = $("year"), modified = $("lastModified"), dir = $("directory");
+    const gridBtn = $("grid-view"), listBtn = $("list-view");
+    const spotlight = $("spotlights"), timestamp = $("timestamp");
 
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
+    year && (year.textContent = new Date().getFullYear());
+    modified && (modified.textContent = new Date(document.lastModified).toLocaleDateString());
+    timestamp && (timestamp.value = new Date().toISOString());
 
-    if (lastModifiedElement) {
-        lastModifiedElement.textContent = new Date(document.lastModified).toLocaleDateString();
-    }
-
-    if (timestampInput) {
-        timestampInput.value = new Date().toISOString();
-    }
-
-    if (gridBtn && listBtn && directory) {
-        gridBtn.setAttribute('aria-pressed', 'true');
-        listBtn.setAttribute('aria-pressed', 'false');
-
-        gridBtn.addEventListener('click', () => {
-            directory.classList.add('grid');
-            directory.classList.remove('list');
-            gridBtn.setAttribute('aria-pressed', 'true');
-            listBtn.setAttribute('aria-pressed', 'false');
-        });
-
-        listBtn.addEventListener('click', () => {
-            directory.classList.add('list');
-            directory.classList.remove('grid');
-            gridBtn.setAttribute('aria-pressed', 'false');
-            listBtn.setAttribute('aria-pressed', 'true');
-        });
+    if (gridBtn && listBtn && dir) {
+        const toggleView = (view) => {
+            dir.classList.toggle('grid', view === 'grid');
+            dir.classList.toggle('list', view === 'list');
+            gridBtn.setAttribute('aria-pressed', view === 'grid');
+            listBtn.setAttribute('aria-pressed', view === 'list');
+        };
+        gridBtn.addEventListener('click', () => toggleView('grid'));
+        listBtn.addEventListener('click', () => toggleView('list'));
+        toggleView('grid');
     }
 
     async function loadMembers() {
         try {
-            const response = await fetch('scripts/data/members.json');
-            if (!response.ok) throw new Error('Network response was not ok');
-            const members = await response.json();
-
-            if (directory) renderDirectory(members);
-            if (spotlightSection) renderSpotlights(members);
-        } catch (error) {
-            console.error('Error loading members:', error);
-            if (directory) directory.innerHTML = '<p>Unable to load member data.</p>';
-            if (spotlightSection) spotlightSection.innerHTML = '<p>Unable to load spotlight data.</p>';
+            const res = await fetch('scripts/data/members.json');
+            if (!res.ok) throw new Error('Failed to load');
+            const members = await res.json();
+            dir && renderDirectory(members);
+            spotlight && renderSpotlights(members);
+        } catch (e) {
+            console.error('Error loading members:', e);
+            dir && (dir.innerHTML = '<p>Unable to load member data.</p>');
+            spotlight && (spotlight.innerHTML = '<p>Unable to load spotlight data.</p>');
         }
     }
 
     function renderDirectory(members) {
-        directory.innerHTML = '';
-
-        members.forEach(member => {
+        dir.innerHTML = '';
+        members.forEach(m => {
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
-                <h3>${member.name}</h3>
-                <p><strong>Address:</strong> ${member.address}</p>
-                <p><strong>Phone:</strong> ${member.phone}</p>
-                <p><strong>Website:</strong> <a href="${member.website}" target="_blank" rel="noopener">${member.website}</a></p>
-                <p><strong>Membership Level:</strong> ${getMembershipLevel(member.membershipLevel)}</p>
-                <p>${member.description || ''}</p>
-                ${member.image ? `<img src="images/${member.image}" alt="${member.name} logo" style="max-width: 100px; margin-top: 10px;">` : ''}
+                <h3>${m.name}</h3>
+                <p><strong>Address:</strong> ${m.address}</p>
+                <p><strong>Phone:</strong> ${m.phone}</p>
+                <p><strong>Website:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+                <p><strong>Membership Level:</strong> ${getLevel(m.membershipLevel)}</p>
+                <p>${m.description || ''}</p>
+                ${m.image ? `<img src="images/${m.image}" alt="${m.name} logo" style="max-width:100px; margin-top:10px;">` : ''}
             `;
-            directory.appendChild(card);
+            dir.appendChild(card);
         });
-
         animateCards();
     }
 
     function renderSpotlights(members) {
-        spotlightSection.innerHTML = '';
-
-        const topMembers = members.filter(m => m.membershipLevel === 2 || m.membershipLevel === 3);
-        const randomSpotlights = topMembers.sort(() => 0.5 - Math.random()).slice(0, 3);
-
-        randomSpotlights.forEach(member => {
-            const card = document.createElement('div');
-            card.className = 'spotlight-card';
-            card.innerHTML = `
-                <img src="images/${member.image}" alt="${member.name} logo">
-                <div class="business-info">
-                    <h3>${member.name}</h3>
-                    <p>${member.description || ""}</p>
-                    <p><strong>EMAIL:</strong> ${member.email || "N/A"}</p>
-                    <p><strong>PHONE:</strong> ${member.phone}</p>
-                    <p><strong>URL:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
-                </div>
-            `;
-            spotlightSection.appendChild(card);
-        });
+        spotlight.innerHTML = '';
+        members
+            .filter(m => [2, 3].includes(m.membershipLevel))
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3)
+            .forEach(m => {
+                const card = document.createElement('div');
+                card.className = 'spotlight-card';
+                card.innerHTML = `
+                    <img src="images/${m.image}" alt="${m.name} logo">
+                    <div class="business-info">
+                        <h3>${m.name}</h3>
+                        <p>${m.description || ''}</p>
+                        <p><strong>EMAIL:</strong> ${m.email || 'N/A'}</p>
+                        <p><strong>PHONE:</strong> ${m.phone}</p>
+                        <p><strong>URL:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+                    </div>
+                `;
+                spotlight.appendChild(card);
+            });
     }
 
-    function getMembershipLevel(level) {
-        switch (level) {
-            case 1: return 'Member';
-            case 2: return 'Silver';
-            case 3: return 'Gold';
-            default: return 'Unknown';
-        }
-    }
+    const getLevel = lvl => ({ 1: 'Member', 2: 'Silver', 3: 'Gold' }[lvl] || 'Unknown');
 
     function animateCards() {
-        const fadeCards = document.querySelectorAll('.card');
-        fadeCards.forEach((card, index) => {
+        document.querySelectorAll('.card').forEach((card, i) => {
             card.style.opacity = 0;
             card.style.transition = 'opacity 1s ease';
-            setTimeout(() => {
-                card.style.opacity = 1;
-            }, 300 * index);
+            setTimeout(() => (card.style.opacity = 1), 300 * i);
         });
     }
 
-    const modalLinks = document.querySelectorAll('.membership-cards a');
-    modalLinks.forEach(link => {
+    document.querySelectorAll('.membership-cards a').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
-            const modalId = link.getAttribute('href').replace('#', '');
-            const modal = document.getElementById(modalId);
-            if (modal && typeof modal.showModal === 'function') {
-                modal.showModal();
-            }
+            const modal = $(link.getAttribute('href').replace('#', ''));
+            if (modal?.showModal) modal.showModal();
         });
     });
 
