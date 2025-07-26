@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Join the Brazil Chamber of Commerce to grow your network and business opportunities." />
+    <meta name="author" content="Bryan Wesley Santana" />
+    <title>Join - Brazil Chamber of Commerce</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="scripts/script.js">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-title">
+                <a href="index.html">Brazil Chamber of Commerce</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html" class="active">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <form method="get" action="thankyou.html" class="join-form">
+            <label>First Name*:
+                <input type="text" name="fname" id="fname" required>
+            </label>
+
+            <label>Last Name*:
+                <input type="text" name="lname" id="lname" required>
+            </label>
+
+            <label>Title/Position:
+                <input type="text" name="title" id="title" pattern="[A-Za-z\-\s]{7,}"
+                    title="Minimum of 7 alphabetic characters">
+            </label>
+
+            <label>Email*:
+                <input type="email" name="email" id="email" required placeholder="you@example.com">
+            </label>
+
+            <label>Mobile Phone Number:
+                <input type="tel" name="phone" id="phone">
+            </label>
+
+            <label>Business/Organization Name*:
+                <input type="text" name="organization" id="organization" required>
+            </label>
+
+            <label>Membership Level*:
+                <select name="membership" id="membership" required>
+                    <option value="" disabled selected>--Select a Membership--</option>
+                    <option value="np">NP Membership (Free)</option>
+                    <option value="bronze">Bronze Membership</option>
+                    <option value="silver">Silver Membership</option>
+                    <option value="gold">Gold Membership</option>
+                </select>
+            </label>
+
+            <label>Description:
+                <textarea name="description" id="description"></textarea>
+            </label>
+
+            <input type="hidden" name="timestamp" id="timestamp">
+
+            <input type="submit" value="Join Now">
+        </form>
+
+        <section class="membership-cards">
+            <div class="card">
+                <h2>NP Membership</h2>
+                <p>Ideal for non-profit organizations. Enjoy essential visibility.</p>
+                <a href="#npModal">View Benefits</a>
+            </div>
+
+            <div class="card">
+                <h2>Bronze Membership</h2>
+                <p>Affordable option with added promotional benefits.</p>
+                <a href="#bronzeModal">View Benefits</a>
+            </div>
+
+            <div class="card">
+                <h2>Silver Membership</h2>
+                <p>Increased visibility and marketing tools.</p>
+                <a href="#silverModal">View Benefits</a>
+            </div>
+
+            <div class="card">
+                <h2>Gold Membership</h2>
+                <p>Top-tier exposure with spotlight opportunities.</p>
+                <a href="#goldModal">View Benefits</a>
+            </div>
+        </section>
+
+        <dialog id="npModal">
+            <h3>NP Membership Benefits</h3>
+            <ul>
+                <li>Free listing in directory</li>
+                <li>Community support and networking</li>
+                <li>Access to general events</li>
+            </ul>
+            <form method="dialog"><button>Close</button></form>
+        </dialog>
+
+        <dialog id="bronzeModal">
+            <h3>Bronze Membership Benefits</h3>
+            <ul>
+                <li>All NP benefits</li>
+                <li>Social media promotion</li>
+                <li>Event sponsorship discounts</li>
+            </ul>
+            <form method="dialog"><button>Close</button></form>
+        </dialog>
+
+        <dialog id="silverModal">
+            <h3>Silver Membership Benefits</h3>
+            <ul>
+                <li>All Bronze benefits</li>
+                <li>Spotlight on homepage</li>
+                <li>Email marketing inclusion</li>
+            </ul>
+            <form method="dialog"><button>Close</button></form>
+        </dialog>
+
+        <dialog id="goldModal">
+            <h3>Gold Membership Benefits</h3>
+            <ul>
+                <li>All Silver benefits</li>
+                <li>Custom ad placement</li>
+                <li>VIP event access</li>
+            </ul>
+            <form method="dialog"><button>Close</button></form>
+        </dialog>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <p><strong>Brazil Chamber of Commerce</strong><br />
+                    Avenida Cândido de Abreu, 1270 - Centro Cívico<br />
+                    Curitiba, PR - 81013-350 &bull; (41) 3205-3819 <br />
+                    Contact us:<a href="chambercuritiba@gmail.com">chambercuritiba@gmail.com</a><br />
+                </p>
+            </div>
+    
+            <div class="footer-column center">
+                <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M23.498 6.186a2.979 2.979 0 0 0-2.098-2.111C19.475 3.5 12 3.5 12 3.5s-7.475 0-9.4.575A2.979 2.979 0 0 0 .502 6.186 31.78 31.78 0 0 0 0 12c0 1.975.163 3.937.502 5.814a2.979 2.979 0 0 0 2.098 2.111C4.525 20.5 12 20.5 12 20.5s7.475 0 9.4-.575a2.979 2.979 0 0 0 2.098-2.111A31.78 31.78 0 0 0 24 12a31.78 31.78 0 0 0-.502-5.814zM9.75 15.5v-7l6.5 3.5-6.5 3.5z" />
+                    </svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M22.67 0H1.33A1.34 1.34 0 0 0 0 1.33v21.34A1.34 1.34 0 0 0 1.33 24h21.34A1.34 1.34 0 0 0 24 22.67V1.33A1.34 1.34 0 0 0 22.67 0zM15.48 18h-2.03l-3.33-4.5L6.87 18H4.83l4.37-5.8L5.04 6h2.03l2.83 3.82L12.63 6h2.03l-4.03 5.33L15.48 18z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/bryansantana/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.47a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM20.45 20.45h-3.56v-5.56c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.65h-3.56V9h3.42v1.56h.05c.48-.9 1.65-1.85 3.4-1.85 3.64 0 4.31 2.4 4.31 5.5v6.25z" />
+                    </svg>
+                </a>
+            </div>
+    
+            <div class="footer-column right">
+                <p>WDD231 Class Project<br />
+                    Bryan Wesley Santana<br />
+                    &copy; <span id="year"></span> Brazil Chamber of Commerce<br />
+                    Last Modified: <span id="lastModified"></span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

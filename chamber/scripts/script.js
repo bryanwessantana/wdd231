@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gridBtn = document.getElementById('grid-view');
     const listBtn = document.getElementById('list-view');
     const spotlightSection = document.getElementById('spotlights');
+    const timestampInput = document.getElementById('timestamp');
 
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
@@ -12,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (lastModifiedElement) {
         lastModifiedElement.textContent = new Date(document.lastModified).toLocaleDateString();
+    }
+
+    if (timestampInput) {
+        timestampInput.value = new Date().toISOString();
     }
 
     if (gridBtn && listBtn && directory) {
@@ -35,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadMembers() {
         try {
-            const response = await fetch('scripts/data/members.json'); // <- Must be accessible from HTML
+            const response = await fetch('scripts/data/members.json');
             if (!response.ok) throw new Error('Network response was not ok');
             const members = await response.json();
 
@@ -65,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             directory.appendChild(card);
         });
+
+        animateCards();
     }
 
     function renderSpotlights(members) {
@@ -98,6 +105,29 @@ document.addEventListener('DOMContentLoaded', () => {
             default: return 'Unknown';
         }
     }
+
+    function animateCards() {
+        const fadeCards = document.querySelectorAll('.card');
+        fadeCards.forEach((card, index) => {
+            card.style.opacity = 0;
+            card.style.transition = 'opacity 1s ease';
+            setTimeout(() => {
+                card.style.opacity = 1;
+            }, 300 * index);
+        });
+    }
+
+    const modalLinks = document.querySelectorAll('.membership-cards a');
+    modalLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const modalId = link.getAttribute('href').replace('#', '');
+            const modal = document.getElementById(modalId);
+            if (modal && typeof modal.showModal === 'function') {
+                modal.showModal();
+            }
+        });
+    });
 
     loadMembers();
 });
