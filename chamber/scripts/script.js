@@ -1,12 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const $ = id => document.getElementById(id);
-    const year = $("year"), modified = $("lastModified"), dir = $("directory");
-    const gridBtn = $("grid-view"), listBtn = $("list-view");
-    const spotlight = $("spotlights"), timestamp = $("timestamp");
+    const year = document.getElementById("year");
+    const modified = document.getElementById("lastModified");
+    const gridBtn = document.getElementById('grid-view');
+    const listBtn = document.getElementById('list-view');
+    const dir = document.getElementById('directory');
+    const spotlight = document.getElementById('spotlights');
 
-    year && (year.textContent = new Date().getFullYear());
-    modified && (modified.textContent = new Date(document.lastModified).toLocaleDateString());
-    timestamp && (timestamp.value = new Date().toISOString());
+    const timestampInput = document.getElementById('timestamp');
+    if (timestampInput) {
+        timestampInput.value = new Date().toISOString();
+    }
+
+    if (year) year.textContent = new Date().getFullYear();
+    if (modified) modified.textContent = new Date(document.lastModified).toLocaleString();
 
     if (gridBtn && listBtn && dir) {
         const toggleView = (view) => {
@@ -25,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('scripts/data/members.json');
             if (!res.ok) throw new Error('Failed to load');
             const members = await res.json();
-            dir && renderDirectory(members);
-            spotlight && renderSpotlights(members);
+            if (dir) renderDirectory(members);
+            if (spotlight) renderSpotlights(members);
         } catch (e) {
             console.error('Error loading members:', e);
-            dir && (dir.innerHTML = '<p>Unable to load member data.</p>');
-            spotlight && (spotlight.innerHTML = '<p>Unable to load spotlight data.</p>');
+            if (dir) dir.innerHTML = '<p>Unable to load member data.</p>';
+            if (spotlight) spotlight.innerHTML = '<p>Unable to load spotlight data.</p>';
         }
     }
 
@@ -40,14 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
-                <h3>${m.name}</h3>
-                <p><strong>Address:</strong> ${m.address}</p>
-                <p><strong>Phone:</strong> ${m.phone}</p>
-                <p><strong>Website:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
-                <p><strong>Membership Level:</strong> ${getLevel(m.membershipLevel)}</p>
-                <p>${m.description || ''}</p>
-                ${m.image ? `<img src="images/${m.image}" alt="${m.name} logo" style="max-width:100px; margin-top:10px;">` : ''}
-            `;
+        <h3>${m.name}</h3>
+        <p><strong>Address:</strong> ${m.address}</p>
+        <p><strong>Phone:</strong> ${m.phone}</p>
+        <p><strong>Website:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+        <p><strong>Membership Level:</strong> ${getLevel(m.membershipLevel)}</p>
+        <p>${m.description || ''}</p>
+        ${m.image ? `<img src="images/${m.image}" alt="${m.name} logo" style="max-width:100px; margin-top:10px;">` : ''}
+      `;
             dir.appendChild(card);
         });
         animateCards();
@@ -63,15 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'spotlight-card';
                 card.innerHTML = `
-                    <img src="images/${m.image}" alt="${m.name} logo">
-                    <div class="business-info">
-                        <h3>${m.name}</h3>
-                        <p>${m.description || ''}</p>
-                        <p><strong>EMAIL:</strong> ${m.email || 'N/A'}</p>
-                        <p><strong>PHONE:</strong> ${m.phone}</p>
-                        <p><strong>URL:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
-                    </div>
-                `;
+          <img src="images/${m.image}" alt="${m.name} logo">
+          <div class="business-info">
+            <h3>${m.name}</h3>
+            <p>${m.description || ''}</p>
+            <p><strong>EMAIL:</strong> ${m.email || 'N/A'}</p>
+            <p><strong>PHONE:</strong> ${m.phone}</p>
+            <p><strong>URL:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+          </div>
+        `;
                 spotlight.appendChild(card);
             });
     }
@@ -89,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.membership-cards a').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
-            const modal = $(link.getAttribute('href').replace('#', ''));
+            const modalId = link.getAttribute('href').replace('#', '');
+            const modal = document.getElementById(modalId);
             if (modal?.showModal) modal.showModal();
         });
     });

@@ -14,12 +14,11 @@
     <meta property="og:url" content="https://bryanwessantana.github.io/wdd231/chamber/directory.html" />
     <meta property="og:type" content="website" />
 
-    <title>Join - Brazil Chamber of Commerce</title>
+    <title>Join the Chamber - Brazil Chamber of Commerce</title>
 
     <link rel="icon" href="images/favicon.png" type="image/png" />
 
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="scripts/script.js">
 </head>
 
 <body>
@@ -40,121 +39,41 @@
     </header>
 
     <main>
-        <section class="Title">
-            <div class="join-title">
-                <h1>Formulary</h1>
-            </div>
-        </section>
-        <form action="thankyou.html" method="post" class="join-form">
-            <label>First Name*:
-                <input type="text" name="fname" id="fname" required>
-            </label>
+        <h2>Join the Chamber</h2>
+        <form action="thankyou.html" method="get">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" required />
 
-            <label>Last Name*:
-                <input type="text" name="lname" id="lname" required>
-            </label>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" required />
 
-            <label>Title/Position:
-                <input type="text" name="title" id="title" pattern="[A-Za-z\-\s]{7,}"
-                    title="Minimum of 7 alphabetic characters">
-            </label>
+            <label for="title">Title/Position:</label>
+            <input type="text" id="title" name="title" pattern="[A-Za-z\s\-]{7,}" required />
 
-            <label>Email*:
-                <input type="email" name="email" id="email" required placeholder="you@example.com">
-            </label>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
 
-            <label>Mobile Phone Number:
-                <input type="tel" name="phone" id="phone">
-            </label>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required />
 
-            <label>Business/Organization Name*:
-                <input type="text" name="organization" id="organization" required>
-            </label>
+            <label for="business">Business/Organization Name:</label>
+            <input type="text" id="business" name="business" required />
 
-            <label>Membership Level*:
-                <select name="membership" id="membership" required>
-                    <option value="" disabled selected>--Select a Membership--</option>
-                    <option value="np">NP Membership (Free)</option>
-                    <option value="bronze">Bronze Membership</option>
-                    <option value="silver">Silver Membership</option>
-                    <option value="gold">Gold Membership</option>
-                </select>
-            </label>
+            <fieldset>
+                <legend>Membership Level</legend>
+                <label><input type="radio" name="membership" value="NP" required /> NP (Non-Profit)</label><br />
+                <label><input type="radio" name="membership" value="Bronze" /> Bronze</label><br />
+                <label><input type="radio" name="membership" value="Silver" /> Silver</label><br />
+                <label><input type="radio" name="membership" value="Gold" /> Gold</label>
+            </fieldset>
 
-            <label>Description:
-                <textarea name="description" id="description"></textarea>
-            </label>
+            <label for="description">Business Description:</label>
+            <textarea id="description" name="description" rows="4" cols="40"></textarea>
 
-            <input type="hidden" name="timestamp" id="timestamp">
+            <input type="hidden" id="timestamp" name="timestamp" />
 
-            <input type="submit" value="Join Now">
+            <button type="submit">Join Now</button>
         </form>
-
-        <section class="membership-cards">
-            <div class="card">
-                <h2>NP Membership</h2>
-                <p>Ideal for non-profit organizations. Enjoy essential visibility.</p>
-                <a href="#npmodal">View Benefits</a>
-            </div>
-        
-            <div class="card">
-                <h2>Bronze Membership</h2>
-                <p>Affordable option with added promotional benefits.</p>
-                <a href="#bronzemodal">View Benefits</a>
-            </div>
-        
-            <div class="card">
-                <h2>Silver Membership</h2>
-                <p>Increased visibility and marketing tools.</p>
-                <a href="#silvermodal">View Benefits</a>
-            </div>
-        
-            <div class="card">
-                <h2>Gold Membership</h2>
-                <p>Top-tier exposure with spotlight opportunities.</p>
-                <a href="#goldmodal">View Benefits</a>
-            </div>
-        </section>
-
-        <dialog id="npmodal">
-            <h3>NP Membership Benefits</h3>
-            <ul>
-                <li>Free listing in directory</li>
-                <li>Community support and networking</li>
-                <li>Access to general events</li>
-            </ul>
-            <form method="dialog"><button>Close</button></form>
-        </dialog>
-        
-        <dialog id="bronzemodal">
-            <h3>Bronze Membership Benefits</h3>
-            <ul>
-                <li>All NP benefits</li>
-                <li>Social media promotion</li>
-                <li>Event sponsorship discounts</li>
-            </ul>
-            <form method="dialog"><button>Close</button></form>
-        </dialog>
-        
-        <dialog id="silvermodal">
-            <h3>Silver Membership Benefits</h3>
-            <ul>
-                <li>All Bronze benefits</li>
-                <li>Spotlight on homepage</li>
-                <li>Email marketing inclusion</li>
-            </ul>
-            <form method="dialog"><button>Close</button></form>
-        </dialog>
-        
-        <dialog id="goldmodal">
-            <h3>Gold Membership Benefits</h3>
-            <ul>
-                <li>All Silver benefits</li>
-                <li>Custom ad placement</li>
-                <li>VIP event access</li>
-            </ul>
-            <form method="dialog"><button>Close</button></form>
-        </dialog>
     </main>
 
     <footer>
@@ -197,6 +116,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="scripts/script.js" defer></script>
 </body>
 
 </html>
