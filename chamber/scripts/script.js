@@ -46,14 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
-        <h3>${m.name}</h3>
-        <p><strong>Address:</strong> ${m.address}</p>
-        <p><strong>Phone:</strong> ${m.phone}</p>
-        <p><strong>Website:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
-        <p><strong>Membership Level:</strong> ${getLevel(m.membershipLevel)}</p>
-        <p>${m.description || ''}</p>
-        ${m.image ? `<img src="images/${m.image}" alt="${m.name} logo" style="max-width:100px; margin-top:10px;">` : ''}
-      `;
+                <h3>${m.name}</h3>
+                <p><strong>Address:</strong> ${m.address}</p>
+                <p><strong>Phone:</strong> ${m.phone}</p>
+                <p><strong>Website:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+                <p><strong>Membership Level:</strong> ${getLevel(m.membershipLevel)}</p>
+                <p>${m.description || ''}</p>
+                ${m.image ? `<img src="images/${m.image}" alt="${m.name} logo" style="max-width:100px; margin-top:10px;">` : ''}
+            `;
             dir.appendChild(card);
         });
         animateCards();
@@ -69,15 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'spotlight-card';
                 card.innerHTML = `
-          <img src="images/${m.image}" alt="${m.name} logo">
-          <div class="business-info">
-            <h3>${m.name}</h3>
-            <p>${m.description || ''}</p>
-            <p><strong>EMAIL:</strong> ${m.email || 'N/A'}</p>
-            <p><strong>PHONE:</strong> ${m.phone}</p>
-            <p><strong>URL:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
-          </div>
-        `;
+                    <img src="images/${m.image}" alt="${m.name} logo">
+                    <div class="business-info">
+                        <h3>${m.name}</h3>
+                        <p>${m.description || ''}</p>
+                        <p><strong>EMAIL:</strong> ${m.email || 'N/A'}</p>
+                        <p><strong>PHONE:</strong> ${m.phone}</p>
+                        <p><strong>URL:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+                    </div>
+                `;
                 spotlight.appendChild(card);
             });
     }
@@ -102,4 +102,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     loadMembers();
+
+    // ─────────────────────────────────────────────
+    // Discover Page Enhancements
+    // ─────────────────────────────────────────────
+    if (document.body.classList.contains('discover-page')) {
+        const messageDiv = document.getElementById("visit-message");
+        const gallery = document.querySelector(".gallery");
+        const sidebar = document.querySelector(".sidebar");
+        const layout = document.querySelector(".discover-layout");
+
+        // 1. LocalStorage visit tracking
+        const now = Date.now();
+        const lastVisit = localStorage.getItem("lastVisit");
+        if (!lastVisit) {
+            showTemporaryMessage("Welcome!");
+        } else {
+            const diff = now - parseInt(lastVisit);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            if (days === 0) {
+                showTemporaryMessage("Welcome back!");
+            } else {
+                showTemporaryMessage(`Visited ${days} day${days > 1 ? 's' : ''} ago.`);
+            }
+        }
+        localStorage.setItem("lastVisit", now);
+
+        function showTemporaryMessage(text) {
+            if (!messageDiv || !sidebar || !layout) return;
+
+            messageDiv.textContent = text;
+            sidebar.classList.add("show");
+            layout.classList.remove("sidebar-hidden");
+
+            setTimeout(() => {
+                sidebar.classList.remove("show");
+                messageDiv.style.display = "none";
+                layout.classList.add("sidebar-hidden");
+            }, 3000);
+        }
+
+        // 2. Load Places of Interest
+        async function loadPlaces() {
+            try {
+                const res = await fetch("scripts/data/places.json");
+                if (!res.ok) throw new Error("Unable to fetch places.json");
+                const places = await res.json();
+                renderGallery(places);
+            } catch (err) {
+                console.error(err);
+                gallery.innerHTML = "<p>Unable to load interest items.</p>";
+            }
+        }
+
+        function renderGallery(items) {
+            gallery.innerHTML = '';
+            items.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <h2>${item.name}</h2>
+                    <figure>
+                        <img src="${item.image}" alt="${item.name}">
+                    </figure>
+                    <address>${item.address}</address>
+                    <p>${item.description}</p>
+                    <button>Learn more</button>
+                `;
+                gallery.appendChild(card);
+            });
+        }
+
+        loadPlaces();
+    }
 });

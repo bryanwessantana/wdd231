@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Museu Oscar Niemeyer",
+        "address": "R. Mal. Hermes, 999 - Centro Cívico, Curitiba - PR",
+        "description": "One of the largest art museums in Latin America.",
+        "image": "images/oscar-niemeyer.jpg"
+    },
+    {
+        "name": "Jardim Botânico",
+        "address": "Av. Pref. Lothário Meissner, 3168 - Jardim Botânico, Curitiba - PR",
+        "description": "Famous for its beautiful glass greenhouse and gardens.",
+        "image": "images/jardim-botanico.jpg"
+    },
+    {
+        "name": "Parque Tanguá",
+        "address": "R. Oswaldo Maciel, 97 - Taboão, Curitiba - PR",
+        "description": "Known for its stunning sunset view and waterfalls.",
+        "image": "images/parque-tangua.jpg"
+    },
+    {
+        "name": "Rua das Flores",
+        "address": "Rua XV de Novembro - Centro, Curitiba - PR",
+        "description": "A charming pedestrian-only street with shops and cafés.",
+        "image": "images/rua-das-flores.jpg"
+    },
+    {
+        "name": "Bosque Alemão",
+        "address": "Rua Franz Schubert, 120 - Vista Alegre, Curitiba - PR",
+        "description": "Features a Hansel & Gretel trail and German architecture.",
+        "image": "images/bosque-alemao.jpg"
+    },
+    {
+        "name": "Torre Panorâmica",
+        "address": "Rua Prof. Lycio Grein de Castro Vellozo, 191 - Mercês, Curitiba - PR",
+        "description": "Offers a 360° view of the entire city.",
+        "image": "images/torre-panoramica.jpg"
+    },
+    {
+        "name": "Feirinha do Largo da Ordem",
+        "address": "Largo da Ordem - Centro Histórico, Curitiba - PR",
+        "description": "A traditional street fair with artisans and local food.",
+        "image": "images/largo-da-ordem.jpg"
+    },
+    {
+        "name": "Teatro Paiol",
+        "address": "Praça Guido Viaro, s/n - Prado Velho, Curitiba - PR",
+        "description": "An old gunpowder storage converted into a theater.",
+        "image": "images/teatro-paiol.jpg"
+    }
+]

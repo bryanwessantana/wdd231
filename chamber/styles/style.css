@@ -431,6 +431,109 @@ main {
     background-color: #005f99;
 }
 
+main.discover-layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.sidebar {
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+
+.sidebar-hidden .sidebar {
+    transform: translateX(-100%);
+}
+
+.sidebar.show {
+    display: block;
+}
+
+.discover-layout.sidebar-hidden {
+    grid-template-columns: 1fr;
+}
+
+#visit-message {
+    padding: 1rem;
+    background-color: #eef3ff;
+    border-left: 4px solid #0077b6;
+    font-weight: 600;
+    animation: fadeOut 0.5s ease 3s forwards;
+}
+
+/* Hide message after 3s */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/* === Gallery === */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    grid-area: gallery;
+}
+
+.gallery .card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery .card h2 {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.gallery .card figure {
+    margin: 0;
+}
+
+.gallery .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .gallery .card img:hover {
+        transform: scale(1.03);
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Responsive Layout Tweaks */
+@media (min-width: 641px) {
+    .discover-layout {
+        grid-template-areas: "sidebar gallery";
+        grid-template-columns: 300px 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 footer {
     background-color: var(--secondary-color);
     color: white;
