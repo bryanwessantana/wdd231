@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "name": "Whey Protein - Vanilla",
+    "category": "Supplement",
+    "brand": "ProFit",
+    "price": 49.99,
+    "image": "images/supplements/whey-vanilla.jpg",
+    "description": "High-quality whey protein with 24g per serving."
+  },
+  {
+    "id": 2,
+    "name": "Creatine Monohydrate",
+    "category": "Supplement",
+    "brand": "MuscleMax",
+    "price": 29.95,
+    "image": "images/supplements/creatine.jpg",
+    "description": "Pure micronized creatine for explosive power."
+  },
+  {
+    "id": 3,
+    "name": "Vitamin D3",
+    "category": "Supplement",
+    "brand": "NutriPlus",
+    "price": 12.99,
+    "image": "images/supplements/vitamin-d3.jpg",
+    "description": "Supports bone health and immune system."
+  },
+  {
+    "id": 4,
+    "name": "Karate Gi - Cotton",
+    "category": "Karate Gear",
+    "brand": "Shinobi",
+    "price": 79.95,
+    "image": "images/gear/karate-gi.jpg",
+    "description": "Durable karate gi for all belt levels."
+  },
+  {
+    "id": 5,
+    "name": "Colored Belt - Blue",
+    "category": "Karate Gear",
+    "brand": "FighterWear",
+    "price": 14.99,
+    "image": "images/gear/blue-belt.jpg",
+    "description": "Official blue belt for karate students."
+  },
+  {
+    "id": 6,
+    "name": "Black Belt - Cotton",
+    "category": "Karate Gear",
+    "brand": "FighterWear",
+    "price": 19.99,
+    "image": "images/gear/black-belt.jpg",
+    "description": "Official black belt for advanced students."
+  },
+  {
+    "id": 7,
+    "name": "Karate Gloves",
+    "category": "Karate Gear",
+    "brand": "Warrior",
+    "price": 24.99,
+    "image": "images/gear/karate-gloves.jpg",
+    "description": "Padded gloves for sparring practice."
+  },
+  {
+    "id": 8,
+    "name": "Lifting Straps",
+    "category": "Health",
+    "brand": "IronLift",
+    "price": 14.99,
+    "image": "images/health/lifting-straps.jpg",
+    "description": "Support your grip for heavy lifts."
+  },
+  {
+    "id": 9,
+    "name": "Resistance Bands Set",
+    "category": "Health",
+    "brand": "FlexFit",
+    "price": 29.99,
+    "image": "images/health/resistance-bands.jpg",
+    "description": "Full set of resistance bands for mobility and strength."
+  },
+  {
+    "id": 10,
+    "name": "Promo: Focus Mitts",
+    "category": "Promotions",
+    "brand": "Warrior",
+    "price": 21.99,
+    "image": "images/promotions/focus-mitts.jpg",
+    "description": "Focus mitts for martial arts – limited time offer!"
+  },
+  {
+    "id": 11,
+    "name": "Promo: Gloves Pack",
+    "category": "Promotions",
+    "brand": "FighterWear",
+    "price": 18.99,
+    "image": "images/promotions/gloves-pack.jpg",
+    "description": "Two pairs of gloves for the price of one."
+  },
+  {
+    "id": 12,
+    "name": "Promo: Summer Sale Stack",
+    "category": "Promotions",
+    "brand": "ProFit",
+    "price": 44.99,
+    "image": "images/promotions/summer-stack.jpg",
+    "description": "Pre-workout + protein combo for summer."
+  },
+  {
+    "id": 13,
+    "name": "Promo: Kimono Pack",
+    "category": "Promotions",
+    "brand": "Shinobi",
+    "price": 99.99,
+    "image": "images/promotions/kimono-pack.jpg",
+    "description": "Buy one get one 50% off – kimonos for training."
+  },
+  {
+    "id": 14,
+    "name": "Fitness Shaker Bottle",
+    "category": "Supplement",
+    "brand": "HydroMax",
+    "price": 9.99,
+    "image": "images/supplements/shaker.jpg",
+    "description": "Leak-proof shaker for your pre and post workout."
+  },
+  {
+    "id": 15,
+    "name": "Promo: Belt Set - All Colors",
+    "category": "Promotions",
+    "brand": "FighterWear",
+    "price": 34.99,
+    "image": "images/promotions/belt-set.jpg",
+    "description": "Full karate belt set for training and grading."
+  },
+  {
+    "id": 16,
+    "name": "Omega-3 Fish Oil",
+    "category": "Supplement",
+    "brand": "NutriPlus",
+    "price": 16.99,
+    "image": "images/supplements/omega3.jpg",
+    "description": "Supports heart and joint health."
+  },
+  {
+    "id": 17,
+    "name": "Pre-Workout Explode",
+    "category": "Supplement",
+    "brand": "PowerFuel",
+    "price": 39.99,
+    "image": "images/supplements/preworkout.jpg",
+    "description": "Energy boost and focus before your workout."
+  },
+  {
+    "id": 18,
+    "name": "Wrist Wraps",
+    "category": "Health",
+    "brand": "IronLift",
+    "price": 11.99,
+    "image": "images/health/wrist-wraps.jpg",
+    "description": "Protect your wrists during heavy lifts."
+  },
+  {
+    "id": 19,
+    "name": "Massage Ball Set",
+    "category": "Health",
+    "brand": "FlexFit",
+    "price": 17.99,
+    "image": "images/health/massage-balls.jpg",
+    "description": "Relieve muscle tension and improve recovery."
+  },
+  {
+    "id": 20,
+    "name": "Karate Shin Guards",
+    "category": "Karate Gear",
+    "brand": "Warrior",
+    "price": 27.99,
+    "image": "images/gear/shin-guards.jpg",
+    "description": "Protective shin guards for sparring."
+  },
+  {
+    "id": 21,
+    "name": "Gi Bag - Waterproof",
+    "category": "Karate Gear",
+    "brand": "Shinobi",
+    "price": 34.99,
+    "image": "images/gear/gi-bag.jpg",
+    "description": "Carry your gear in style and protection."
+  },
+  {
+    "id": 22,
+    "name": "Promo: Health Starter Pack",
+    "category": "Promotions",
+    "brand": "NutriPlus",
+    "price": 49.99,
+    "image": "images/promotions/health-pack.jpg",
+    "description": "Vitamins, minerals, and immunity boosters combo."
+  },
+  {
+    "id": 23,
+    "name": "Electrolyte Powder",
+    "category": "Supplement",
+    "brand": "HydroMax",
+    "price": 14.99,
+    "image": "images/supplements/electrolyte.jpg",
+    "description": "Stay hydrated during intense workouts."
+  },
+  {
+    "id": 24,
+    "name": "Heavy Duty Jump Rope",
+    "category": "Health",
+    "brand": "FlexFit",
+    "price": 19.99,
+    "image": "images/health/jump-rope.jpg",
+    "description": "Improve cardio and coordination."
+  },
+  {
+    "id": 25,
+    "name": "Headgear - Full Protection",
+    "category": "Karate Gear",
+    "brand": "FighterWear",
+    "price": 42.99,
+    "image": "images/gear/headgear.jpg",
+    "description": "Padded helmet for maximum safety."
+  },
+  {
+    "id": 26,
+    "name": "Promo: Supplement Duo",
+    "category": "Promotions",
+    "brand": "ProFit",
+    "price": 39.99,
+    "image": "images/promotions/supplement-duo.jpg",
+    "description": "Protein + creatine bundle."
+  },
+  {
+    "id": 27,
+    "name": "Elbow Support Sleeves",
+    "category": "Health",
+    "brand": "IronLift",
+    "price": 22.99,
+    "image": "images/health/elbow-support.jpg",
+    "description": "Compression and support for joint pain relief."
+  },
+  {
+    "id": 28,
+    "name": "Karate T-Shirt",
+    "category": "Karate Gear",
+    "brand": "Shinobi",
+    "price": 24.95,
+    "image": "images/gear/karate-shirt.jpg",
+    "description": "Comfortable tee with dojo branding."
+  },
+  {
+    "id": 29,
+    "name": "Promo: Gym Essentials Set",
+    "category": "Promotions",
+    "brand": "FlexFit",
+    "price": 59.99,
+    "image": "images/promotions/gym-essentials.jpg",
+    "description": "Straps, wraps, bottle, and towel."
+  },
+  {
+    "id": 30,
+    "name": "Protein Bar Pack",
+    "category": "Supplement",
+    "brand": "NutriPlus",
+    "price": 19.99,
+    "image": "images/supplements/protein-bars.jpg",
+    "description": "12-pack of high-protein snack bars."
+  }
+]
