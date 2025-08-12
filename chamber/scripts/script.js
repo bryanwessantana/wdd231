@@ -46,14 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
-                <h3>${m.name}</h3>
-                <p><strong>Address:</strong> ${m.address}</p>
-                <p><strong>Phone:</strong> ${m.phone}</p>
-                <p><strong>Website:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
-                <p><strong>Membership Level:</strong> ${getLevel(m.membershipLevel)}</p>
-                <p>${m.description || ''}</p>
-                ${m.image ? `<img src="images/${m.image}" alt="${m.name} logo" style="max-width:100px; margin-top:10px;">` : ''}
-            `;
+            <h3>${m.name}</h3>
+            <p><strong>Address:</strong> ${m.address}</p>
+            <p><strong>Phone:</strong> ${m.phone}</p>
+            <p><strong>Website:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+            <p><strong>Membership Level:</strong> ${getLevel(m.membershipLevel)}</p>
+            <p>${m.description || ''}</p>
+            ${m.image
+                    ? `
+                        <picture>
+                            <source srcset="images/${m.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')}" type="image/webp">
+                            <img src="images/${m.image}" alt="${m.name} logo" style="max-width:100px; margin-top:10px;" loading="lazy">
+                        </picture>
+                      `
+                    : ''
+                }
+        `;
             dir.appendChild(card);
         });
         animateCards();
@@ -69,15 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'spotlight-card';
                 card.innerHTML = `
-                    <img src="images/${m.image}" alt="${m.name} logo">
-                    <div class="business-info">
-                        <h3>${m.name}</h3>
-                        <p>${m.description || ''}</p>
-                        <p><strong>EMAIL:</strong> ${m.email || 'N/A'}</p>
-                        <p><strong>PHONE:</strong> ${m.phone}</p>
-                        <p><strong>URL:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
-                    </div>
-                `;
+                <picture>
+                    <source srcset="images/${m.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')}" type="image/webp">
+                    <img src="images/${m.image}" alt="${m.name} logo" loading="lazy">
+                </picture>
+                <div class="business-info">
+                    <h3>${m.name}</h3>
+                    <p>${m.description || ''}</p>
+                    <p><strong>EMAIL:</strong> ${m.email || 'N/A'}</p>
+                    <p><strong>PHONE:</strong> ${m.phone}</p>
+                    <p><strong>URL:</strong> <a href="${m.website}" target="_blank">${m.website}</a></p>
+                </div>
+            `;
                 spotlight.appendChild(card);
             });
     }
@@ -163,7 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.innerHTML = `
                     <h2>${item.name}</h2>
                     <figure>
-                        <img src="${item.image}" alt="${item.name}">
+                        <picture>
+                            <source srcset="${item.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')}" type="image/webp">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy">
+                        </picture>
                     </figure>
                     <address>${item.address}</address>
                     <p>${item.description}</p>

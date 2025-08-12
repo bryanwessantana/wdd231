@@ -23,6 +23,7 @@ body {
     background-color: var(--background-light);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 a {
@@ -58,6 +59,12 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
 }
 
 nav ul {
