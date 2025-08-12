@@ -3,7 +3,7 @@ let allProducts = []; // Will hold products loaded from JSON
 // Fetch product data once and initialize all
 async function loadProducts() {
     try {
-        const res = await fetch('script/data/products.json');
+        const res = await fetch('scripts/data/products.json');
         allProducts = await res.json();
         document.dispatchEvent(new Event('productsLoaded')); // 🔹 Trigger event
         initializePage();
@@ -452,8 +452,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Adjust JSON path depending on current folder
     const pathToJSON = window.location.pathname.includes("/categories/")
-        ? "../script/data/products.json"
-        : "script/data/products.json";
+        ? "../scripts/data/products.json"
+        : "scripts/data/products.json";
 
     fetch(pathToJSON)
         .then(res => res.json())
