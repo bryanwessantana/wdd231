@@ -11,7 +11,7 @@ function getImagePath(path) {
 
 // ==================== MAIN INIT ====================
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadProducts(); // Wait until products are loaded
+    await loadProducts();
 
     updateYearAndModified();
     initThemeToggle();
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     initLoginUI();
     initPageHighlight();
     initContactThankYou();
+    initSocialLinks();
 
-    // Lazy load promo carousel images
     document.querySelectorAll('.promo-carousel img').forEach(img => {
         img.setAttribute('loading', 'lazy');
     });
@@ -383,4 +383,23 @@ function initContactThankYou() {
             `Thanks, ${name}, your message has been sent.`;
         localStorage.removeItem('contactName');
     }
+}
+
+// ==================== SOCIAL MEDIA LINKS ====================
+function initSocialLinks() {
+    const socialContainer = document.getElementById('socialLinks');
+    if (!socialContainer) return;
+
+    const socials = [
+        { href: 'https://facebook.com', icon: 'fab fa-facebook-f', label: 'Facebook' },
+        { href: 'https://twitter.com', icon: 'fab fa-twitter', label: 'Twitter' },
+        { href: 'https://instagram.com', icon: 'fab fa-instagram', label: 'Instagram' },
+        { href: 'https://youtube.com', icon: 'fab fa-youtube', label: 'YouTube' }
+    ];
+
+    socialContainer.innerHTML = socials.map(s => `
+        <a href="${s.href}" target="_blank" rel="noopener noreferrer" aria-label="${s.label}">
+            <i class="${s.icon}"></i>
+        </a>
+    `).join('');
 }
