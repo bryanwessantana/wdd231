@@ -492,5 +492,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.querySelectorAll('.promo-carousel img').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+});
+
 // Start by loading products.json on page load
 document.addEventListener('DOMContentLoaded', loadProducts);
