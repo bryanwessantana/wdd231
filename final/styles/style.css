@@ -198,6 +198,29 @@ body.dark footer a {
     color: #ddd;
 }
 
+/* Container to position heading over carousel */
+.hero-section {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+/* Style the heading */
+.hero-section h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    padding: 0.5rem 1rem;
+}
+
 /* Logout */
 
 #logoutBtn {
