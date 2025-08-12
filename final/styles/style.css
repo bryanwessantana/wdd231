@@ -34,8 +34,7 @@ body {
     color: var(--text-light);
 }
 
-header,
-footer {
+header {
     background: var(--primary-dark);
     color: #fff;
     display: flex;
@@ -659,19 +658,31 @@ textarea:focus {
 }
 
 /* === FOOTER === */
+footer {
+    background: var(--primary-dark);
+    color: #fff;
+    padding: 1rem 2rem;
+}
+
 .footer-container {
-    display: flex;
-    justify-content: center;
-    /* center the blocks */
-    gap: 4rem;
-    /* space between them */
-    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
     padding: 2rem 1rem;
 }
 
 .footer-container>div {
     text-align: center;
     min-width: 200px;
+}
+
+.footer-left,
+.footer-center {
+    text-align: center;
 }
 
 footer a {
@@ -689,25 +700,19 @@ footer p {
     color: #ccc;
 }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+/* === SOCIAL ICONS === */
+
+.footer-right {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
-.footer-left,
-.footer-center {
-    text-align: center;
-}
-
-footer .footer-right .social-icons,
+footer .footer-right .social-links,
 footer .footer-right .social-icons ul {
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     gap: 0.8rem;
     align-items: center;
     justify-content: center;
@@ -717,7 +722,7 @@ footer .footer-right .social-icons ul {
 
 footer .footer-right .social-icons li {
     list-style: none;
-    display: inline-flex !important;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     margin: 0;
@@ -725,21 +730,24 @@ footer .footer-right .social-icons li {
 }
 
 footer .footer-right .social-icons a {
-    display: inline-flex !important;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: auto;
-    height: auto;
     padding: 0.2rem;
     text-decoration: none;
     color: inherit;
+    transition: color 0.2s ease;
 }
 
-footer .footer-right .social-icons i {
-    display: block;
-    line-height: 1;
-    font-size: 1.25rem;
-    /* adjust size as needed */
+footer .footer-right .social-icons a:hover {
+    color: #ffcc00;
+}
+
+footer .footer-right .social-icons i,
+footer .footer-right .social-icons svg {
+    font-size: 2rem !important;
+    width: 2rem !important;
+    height: 2rem !important;
 }
 
 /* === RESPONSIVE === */

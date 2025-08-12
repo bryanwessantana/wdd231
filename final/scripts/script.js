@@ -385,21 +385,83 @@ function initContactThankYou() {
     }
 }
 
-// ==================== SOCIAL MEDIA LINKS ====================
+// ==================== SOCIAL MEDIA LINKS (robust, FA or SVG fallback) ====================
 function initSocialLinks() {
-    const socialContainer = document.getElementById('socialLinks');
-    if (!socialContainer) return;
+    // find or create container
+    let socialContainer = document.getElementById('socialLinks');
+
+    if (!socialContainer) {
+        const footerRight = document.querySelector('footer .footer-right') || document.querySelector('footer');
+        if (!footerRight) {
+            console.warn('initSocialLinks: no <footer> found to attach social links.');
+            return;
+        }
+        socialContainer = document.createElement('div');
+        socialContainer.id = 'socialLinks';
+        // keep both class names your CSS uses
+        socialContainer.className = 'social-links social-icons';
+        footerRight.appendChild(socialContainer);
+    } else {
+        // ensure correct classes for your CSS selectors
+        socialContainer.classList.add('social-links', 'social-icons');
+    }
 
     const socials = [
-        { href: 'https://facebook.com', icon: 'fab fa-facebook-f', label: 'Facebook' },
-        { href: 'https://twitter.com', icon: 'fab fa-twitter', label: 'Twitter' },
-        { href: 'https://instagram.com', icon: 'fab fa-instagram', label: 'Instagram' },
-        { href: 'https://youtube.com', icon: 'fab fa-youtube', label: 'YouTube' }
+        { href: 'https://www.facebook.com', fa: 'fab fa-facebook-f', label: 'Facebook', svg: `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 12a10 10 0 10-11.5 9.87v-6.99h-2.2V12h2.2V9.98c0-2.17 1.29-3.37 3.28-3.37.95 0 1.94.17 1.94.17v2.13h-1.09c-1.08 0-1.42.67-1.42 1.36V12h2.42l-.39 2.88h-2.03V21.9A10 10 0 0022 12z"/></svg>` },
+        { href: 'https://twitter.com', fa: 'fab fa-twitter', label: 'Twitter', svg: `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 5.92a7.5 7.5 0 01-2.17.6A3.78 3.78 0 0021.4 4a7.56 7.56 0 01-2.4.92A3.77 3.77 0 0015.5 4c-2.08 0-3.77 1.7-3.77 3.8 0 .3.03.6.1.88A10.7 10.7 0 013 5.2a3.78 3.78 0 001.16 5.07 3.7 3.7 0 01-1.7-.47v.05c0 1.77 1.26 3.24 2.94 3.57-.3.08-.62.12-.95.12-.23 0-.46-.02-.68-.06.46 1.45 1.8 2.5 3.38 2.53A7.58 7.58 0 012 19.54 10.7 10.7 0 008.29 21c6.55 0 10.14-5.42 10.14-10.12v-.46A7.3 7.3 0 0022 5.92z"/></svg>` },
+        { href: 'https://www.instagram.com', fa: 'fab fa-instagram', label: 'Instagram', svg: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="17.6" cy="6.4" r="0.6" fill="currentColor"/></svg>` },
+        { href: 'https://www.youtube.com', fa: 'fab fa-youtube', label: 'YouTube', svg: `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.5 6.2s-.2-1.7-.8-2.4c-.8-.9-1.7-.9-2.1-1C16.8 2.4 12 2.4 12 2.4h-.1S7.2 2.4 3.4 2.8c-.4 0-1.3.1-2.1 1C.4 4.6.2 6.2.2 6.2S0 8.2 0 10.1v.8c0 1.9.2 3.9.2 3.9s.2 1.6.9 2.3c.8.9 1.8.9 2.3 1 1.6.2 6.8.4 6.8.4s4.8 0 8.6-.4c.4 0 1.3-.1 2.1-1 .6-.7.8-2.4.8-2.4s.2-2 .2-3.9v-.8c0-1.9-.2-3.9-.2-3.9zM9.8 15.1V8.9l6.1 3.1-6.1 3.1z"/></svg>` }
     ];
 
-    socialContainer.innerHTML = socials.map(s => `
-        <a href="${s.href}" target="_blank" rel="noopener noreferrer" aria-label="${s.label}">
-            <i class="${s.icon}"></i>
-        </a>
-    `).join('');
+    // detect if Font Awesome stylesheet is already present
+    const linkTags = Array.from(document.getElementsByTagName('link'));
+    const hasFA = linkTags.some(l => l.href && (/font-?awesome|fontawesome|kit.fontawesome|use.fontawesome|cdnjs.cloudflare.com\/ajax\/libs\/font-awesome/i.test(l.href)));
+
+    // Build UL/LI markup (matches your CSS selectors)
+    const ul = document.createElement('ul');
+    ul.style.margin = 0;
+    ul.style.padding = 0;
+    ul.style.display = 'flex';
+    ul.style.gap = '0.8rem';
+    ul.style.alignItems = 'center';
+    ul.style.justifyContent = 'center';
+
+    socials.forEach(s => {
+        const li = document.createElement('li');
+        li.style.listStyle = 'none';
+        const a = document.createElement('a');
+        a.href = s.href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.setAttribute('aria-label', s.label);
+        a.style.display = 'inline-flex';
+        a.style.alignItems = 'center';
+        a.style.justifyContent = 'center';
+        a.style.padding = '0.2rem';
+        a.style.color = 'inherit';
+        // If Font Awesome is available, create <i>. Else use inline SVG fallback.
+        if (hasFA) {
+            const i = document.createElement('i');
+            i.className = s.fa;
+            a.appendChild(i);
+        } else {
+            // SVG fallback
+            const wrapper = document.createElement('span');
+            wrapper.innerHTML = s.svg;
+            // ensure svg sizing is similar to your i sizing
+            const svg = wrapper.querySelector('svg');
+            if (svg) {
+                svg.style.width = '1.25rem';
+                svg.style.height = '1.25rem';
+                svg.style.display = 'block';
+            }
+            a.appendChild(wrapper);
+        }
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
+
+    // clear any previous content and append
+    socialContainer.innerHTML = '';
+    socialContainer.appendChild(ul);
 }
