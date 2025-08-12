@@ -3,12 +3,39 @@ let allProducts = []; // Will hold products loaded from JSON
 // Fetch product data once and initialize all
 async function loadProducts() {
     try {
-        const pathToJSON = window.location.pathname.includes("/categories/")
-            ? "../script/data/products.json"
-            : "script/data/products.json";
-        allProducts = await res.json();
-        document.dispatchEvent(new Event('productsLoaded')); // 🔹 Trigger event
-        initializePage();
+        // ✅ 1. Fetch products JSON correctly
+        const res = await fetch("scripts/data/products.json");
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
+        const allProducts = await res.json();
+
+        // ✅ 2. Prevent .toLowerCase() errors
+        const searchTerm = ""; // Or get from your search input
+        const filteredProducts = allProducts.filter(product =>
+            (product.category && product.category.toLowerCase().includes(searchTerm)) ||
+            (product.name && product.name.toLowerCase().includes(searchTerm))
+        );
+
+        // ✅ 3. Only update DOM if element exists
+        const container = document.getElementById("products-container");
+        if (!container) {
+            console.error("Element with ID 'products-container' not found in the DOM.");
+            return;
+        }
+
+        // Example: Render filtered products
+        container.innerHTML = filteredProducts.map(product => `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <span>$${product.price}</span>
+            </div>
+        `).join("");
+
     } catch (error) {
         console.error("Failed to load products.json:", error);
     }
@@ -503,4 +530,4 @@ document.querySelectorAll('.promo-carousel img').forEach(img => {
 });
 
 // Start by loading products.json on page load
-document.addEventListener('DOMContentLoaded', loadProducts);
+document.addEventListener("DOMContentLoaded", loadProducts);
