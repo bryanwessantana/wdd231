@@ -77,7 +77,7 @@ function renderProductsByCategory() {
     if (!category) return;
 
     const filtered = allProducts.filter(p =>
-        p && p.category && p.category.toLowerCase() === selectedCategory.toLowerCase()
+        p?.category?.toLowerCase() === selectedCategory.toLowerCase()
     );
 
     productTrack.innerHTML = ''; // clear existing
