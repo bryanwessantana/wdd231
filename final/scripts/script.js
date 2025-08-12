@@ -3,7 +3,9 @@ let allProducts = []; // Will hold products loaded from JSON
 // Fetch product data once and initialize all
 async function loadProducts() {
     try {
-        const res = await fetch('scripts/data/products.json');
+        const pathToJSON = window.location.pathname.includes("/categories/")
+            ? "../script/data/products.json"
+            : "script/data/products.json";
         allProducts = await res.json();
         document.dispatchEvent(new Event('productsLoaded')); // 🔹 Trigger event
         initializePage();
@@ -49,7 +51,9 @@ function renderProductsByCategory() {
     const category = productTrack.dataset.category;
     if (!category) return;
 
-    const filtered = allProducts.filter(p => p.category.toLowerCase() === category.toLowerCase());
+    const filtered = allProducts.filter(p =>
+        p.category && p.category.toLowerCase() === category.toLowerCase()
+    );
 
     productTrack.innerHTML = ''; // clear existing
 
@@ -236,7 +240,9 @@ function initPromoCarousel() {
 
     promoCarousel.innerHTML = '';
 
-    const promotions = allProducts.filter(p => p.category.toLowerCase() === 'promotions');
+    const promotions = allProducts.filter(p =>
+        p.category && p.category.toLowerCase() === 'promotions'
+    );
     promotions.forEach(product => {
         const promoCard = document.createElement('div');
         promoCard.classList.add('promo-item');
