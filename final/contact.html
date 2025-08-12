@@ -16,7 +16,7 @@
 
     <title>Fitness & Karate Store</title>
 
-    <link rel="icon" href="images/favicon.webp" type="image/webp">
+    <link rel="icon" href="images/index/favicon.webp" type="image/webp">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="images/bushiboost-logo.png" alt="bushiboost-logo" width="300" /></a>
+            <a href="index.html"><img src="images/index/bushiboot-logo.png" alt="bushiboot-logo" width="300" /></a>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search">
@@ -43,6 +43,7 @@
         <nav>
             <a href="favorites.html">Favorites</a>
             <a href="login.html">Login</a>
+            <button id="logoutBtn" style="display:none; cursor:pointer;">Logout</button>
             <a href="contact.html">Contact</a>
             <a href="cart.html" class="cart-link">🛒 Cart</a>
             <button class="theme-toggle">🌓</button>
@@ -50,40 +51,42 @@
     </header>
     
     <main>
-        <h1>Contact Us</h1>
-        <form action="form-confirmation.html" method="get">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <form action="form-confirmation.html" method="get">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
             
-            <label for="topic">Topic:</label>
-            <select id="topic" name="topic">
-                <option value="supplements">Supplements</option>
-                <option value="gear">Karate Gear</option>
-                <option value="order">Order Support</option>
-            </select>
-
-            <label><input type="checkbox" name="newsletter" /> Sign up for newsletter</label>
+                <label for="topic">Topic:</label>
+                <select id="topic" name="topic">
+                    <option value="supplements">Supplements</option>
+                    <option value="gear">Karate Gear</option>
+                    <option value="order">Order Support</option>
+                </select>
             
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+                <label><input type="checkbox" name="newsletter" /> Sign up for newsletter</label>
             
-            <button type="submit">Send</button>
-        </form>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </main>
 
     <footer>
         <div class="footer-container">
             <div class="footer-left">
                 <p>Contact: 41 98893-9608</p>
-                <p>E-mail: bushiboost@gmail.com</p>
+                <p>E-mail: bushiboot@gmail.com</p>
                 <p>Location: Curitiba - PR</p>
             </div>
     
             <div class="footer-center">
-                <p>&copy; 2025 Fitness & Karate Store</p>
+                <p>&copy; Fitness & Karate Store</p>
                 <p><span id="currentYear"></span>&bull; Bryan Wesley Santana &bull; Brazil</p>
                 <p id="lastModified"></p>
             </div>

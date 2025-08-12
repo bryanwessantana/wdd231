@@ -16,7 +16,7 @@
 
     <title>Fitness & Karate Store</title>
 
-    <link rel="icon" href="images/favicon.webp" type="image/webp">
+    <link rel="icon" href="images/index/favicon.webp" type="image/webp">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,16 +33,17 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="images/bushiboost-logo.png" alt="bushiboost-logo" width="300" /></a>
+            <a href="index.html"><img src="images/index/bushiboot-logo.png" alt="bushiboot-logo" width="300" /></a>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Search">
-            <button>🔍</button>
+            <input type="text" id="searchInput" placeholder="Search">
+            <button id="searchBtn">🔍</button>
         </div>
     
         <nav>
             <a href="favorites.html">Favorites</a>
             <a href="login.html">Login</a>
+            <button id="logoutBtn" style="display:none; cursor:pointer;">Logout</button>
             <a href="contact.html">Contact</a>
             <a href="cart.html" class="cart-link">🛒 Cart</a>
             <button class="theme-toggle">🌓</button>
@@ -52,22 +53,22 @@
     <main>
         <section class="carousel">
             <div class="carousel-track">
-                <img src="images/banner1.jpeg" alt="Banner 2">
+                <img src="images/index/banner1.jpeg" alt="Banner">
             </div>
             <div class="carousel-dots"></div>
         </section>
 
         <section class="categories">
             <a href="categories/clothes.html" class="category-card">
-                <img src="images/clothes.jpg" alt="Clothes">
+                <img src="images/index/clothes.jpg" alt="Clothes">
                 <h3>Clothes</h3>
             </a>
             <a href="categories/supplements.html" class="category-card">
-                <img src="images/supplements.jpg" alt="Supplements">
+                <img src="images/index/supplements.jpg" alt="Supplements">
                 <h3>Supplements</h3>
             </a>
             <a href="categories/health.html" class="category-card">
-                <img src="images/health.jpg" alt="Health">
+                <img src="images/index/health.jpg" alt="Health">
                 <h3>Health</h3>
             </a>
         </section>
@@ -77,7 +78,7 @@
         <section class="promotions">
             <div class="promo-section">
                 <div class="promo-box">
-                    <h2>SALES</h2>
+                    <h2><a href="categories/promotions.html" class="promo-link">SALES</a></h2>
                 </div>
             
                 <div class="promo-carousel-wrapper">
@@ -93,12 +94,12 @@
         <div class="footer-container">
             <div class="footer-left">
                 <p>Contact: 41 98893-9608</p>
-                <p>E-mail: bushiboost@gmail.com</p>
+                <p>E-mail: bushiboot@gmail.com</p>
                 <p>Location: Curitiba - PR</p>
             </div>
     
             <div class="footer-center">
-                <p>&copy; 2025 Fitness & Karate Store</p>
+                <p>&copy; Fitness & Karate Store</p>
                 <p><span id="currentYear"></span>&bull; Bryan Wesley Santana &bull; Brazil</p>
                 <p id="lastModified"></p>
             </div>
@@ -106,7 +107,5 @@
         </div>
     </footer>
 </body>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 </html>
