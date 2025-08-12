@@ -59,6 +59,26 @@ main h1 {
     text-align: center;
 }
 
+.theme-toggle {
+    font-size: 1.1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hero-section {
+    margin-bottom: 2rem;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
 /* === CARD & COMMON ELEMENTS === */
 
 .categories-container {
@@ -301,7 +321,19 @@ nav button:hover {
     margin: 0 auto 0.6rem;
 }
 
+.category-divider {
+    border: 0;
+    border-top: 2px solid var(--hover-bg);
+    margin: 2rem auto;
+    width: 80%;
+}
+
 /* === PROMO CAROUSEL & INDEX CARDS (ADDED) === */
+
+.promotions {
+    padding: 2rem 1rem;
+}
+
 .promo-section {
     display: flex;
     justify-content: center;
@@ -510,6 +542,10 @@ nav button:hover {
     height: 180px;
 }
 
+.cart-link {
+    font-weight: bold;
+}
+
 /* === LOGIN, CONTACT & CONFIRMATION STYLES === */
 .login-container {
     max-width: 420px;
@@ -660,6 +696,11 @@ footer p {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     align-items: center;
+    text-align: center;
+}
+
+.footer-left,
+.footer-center {
     text-align: center;
 }
 
