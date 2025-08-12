@@ -7,8 +7,9 @@ async function loadProducts() {
         const res = await fetch("scripts/data/products.json");
 
         if (!res.ok) {
-            throw new Error(`HTTP error! Status: ${res.status}`);
+            throw new Error(`HTTP error! status: ${res.status}`);
         }
+        allProducts = await res.json();
 
         // ✅ 2. Prevent .toLowerCase() errors
         const searchTerm = ""; // Or get from your search input
@@ -490,7 +491,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(products => {
             const filtered = products.filter(p =>
-                p.category.toLowerCase() === realCategory.toLowerCase()
+                p?.category?.toLowerCase() === realCategory.toLowerCase()
             );
 
             if (filtered.length === 0) {
