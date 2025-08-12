@@ -10,8 +10,6 @@ async function loadProducts() {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
 
-        const allProducts = await res.json();
-
         // ✅ 2. Prevent .toLowerCase() errors
         const searchTerm = ""; // Or get from your search input
         const filteredProducts = allProducts.filter(product =>
@@ -79,7 +77,7 @@ function renderProductsByCategory() {
     if (!category) return;
 
     const filtered = allProducts.filter(p =>
-        p.category && p.category.toLowerCase() === category.toLowerCase()
+        p && p.category && p.category.toLowerCase() === selectedCategory.toLowerCase()
     );
 
     productTrack.innerHTML = ''; // clear existing
