@@ -465,3 +465,30 @@ function initSocialLinks() {
     socialContainer.innerHTML = '';
     socialContainer.appendChild(ul);
 }
+
+// ==================== DIALOG FUNCTION ====================
+document.addEventListener("DOMContentLoaded", () => {
+    const dialog = document.getElementById("welcomeDialog");
+    const openBtn = document.getElementById("openDialogBtn");
+    const closeBtn = document.getElementById("closeDialogBtn");
+
+    openBtn.addEventListener("click", () => {
+        dialog.showModal();
+    });
+
+    closeBtn.addEventListener("click", () => {
+        dialog.close();
+    });
+});
+
+// ==================== HAMBURGER FOR SMALL SCREENS ====================
+function initOtherUI() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active'); // for X animation
+        });
+    }
+}

@@ -253,6 +253,59 @@ nav button:hover {
     color: #ddd;
 }
 
+/* === DIALOG === */
+
+dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    /* Centers text inside */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#openDialogBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #ff4d4d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#openDialogBtn:hover {
+    background: #e60000;
+}
+
+#closeDialogBtn {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 15px;
+    background: #ff4d4d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#closeDialogBtn:hover {
+    background: #e60000;
+}
+
 /* === CAROUSEL === */
 .carousel {
     position: relative;
@@ -662,6 +715,7 @@ footer {
     background: var(--primary-dark);
     color: #fff;
     padding: 1rem 2rem;
+    margin-top: 30px;
 }
 
 .footer-container {
@@ -750,32 +804,101 @@ footer .footer-right .social-icons svg {
     height: 2rem !important;
 }
 
-/* === RESPONSIVE === */
+/* === HAMBURGER MENU === */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
 @media (max-width: 1024px) {
     nav {
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .category-card {
-        width: 45%;
-    }
-
-    .promo-item {
-        flex: 0 0 45%;
-    }
-
+    .category-card,
+    .promo-item,
     .promo-box {
         width: 45%;
     }
 }
 
 @media (max-width: 768px) {
+
+    /* HEADER LAYOUT */
     header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
     }
 
+    /* HAMBURGER ICON */
+    .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1000;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        margin: 5px 0;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animate into X */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* NAV MENU (hidden by default) */
+    #navLinks {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        background: var(--primary-dark);
+        padding: 1rem;
+        position: absolute;
+        top: 70px;
+        /* match header height */
+        left: 0;
+    }
+
+    #navLinks.show {
+        display: flex;
+    }
+
+    /* Adjust other elements */
     .search-bar,
     .promo-carousel-wrapper,
     .grid {
@@ -796,10 +919,19 @@ footer .footer-right .social-icons svg {
     nav button {
         padding: 0.5rem;
         font-size: 0.95rem;
+        width: 100%;
+        text-align: left;
     }
 
     .carousel {
         height: 420px;
+    }
+
+    /* FOOTER STACKING */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
     }
 }
 
@@ -815,12 +947,6 @@ footer .footer-right .social-icons svg {
 
     .logo img {
         max-width: 150px;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
     }
 
     .search-bar {
